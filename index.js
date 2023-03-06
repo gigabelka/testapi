@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const http = require('http');
 const httpServer = http.createServer(app);
+const cors = require('cors');
 
 const port = 3000; // http server port
 
@@ -2622,6 +2623,8 @@ app.get('/getDepartments', (req, res) => {
         name: "Газпром нефть"
     }]);
 });
+
+app.use(cors({ origin: '*'}));
 
 app.get('/getConnectionState', (req, res) => {
     res.send([{connectionStateId: 0, name: 'Недоступен'}, {connectionStateId: 1, name: 'Доступен'}]);
