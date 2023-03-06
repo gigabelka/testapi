@@ -6,6 +6,8 @@ const cors = require('cors');
 
 const port = 3000; // http server port
 
+app.use(cors({ origin: '*'}));
+
 app.get('/getBrigadesData', (req, res) => {
     res.send([
         {
@@ -2623,8 +2625,6 @@ app.get('/getDepartments', (req, res) => {
         name: "Газпром нефть"
     }]);
 });
-
-app.use(cors({ origin: '*'}));
 
 app.get('/getConnectionState', (req, res) => {
     res.send([{connectionStateId: 0, name: 'Недоступен'}, {connectionStateId: 1, name: 'Доступен'}]);
